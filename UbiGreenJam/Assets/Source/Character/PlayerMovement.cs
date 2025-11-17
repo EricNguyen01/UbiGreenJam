@@ -6,12 +6,12 @@ public class PlayerMovement : MonoBehaviour
 
     public float speed = 12f;
 
-    public float gravity = -9.81f;
-
     public float jumpHeight = 3f;
 
     public Transform groundCheck;
+
     public float groundDistance = 0.4f;
+
     public LayerMask groundMask;
 
     Vector3 velocity;
@@ -21,16 +21,12 @@ public class PlayerMovement : MonoBehaviour
     // Mid-air control settings
     // How much control the player has while in the air (1 = full control, 0 = no control)
     public float airControlMultiplier = 0.5f;
+
     // How quickly horizontal velocity approaches the target while in the air
     public float airAcceleration = 10f;
+
     // Internal horizontal velocity used to smoothly blend ground/air control
     Vector3 horizontalVelocity;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -72,12 +68,12 @@ public class PlayerMovement : MonoBehaviour
         {
             if (isGrounded)
             {
-                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y);
             }
         }
 
         // Apply gravity
-        velocity.y += gravity * Time.deltaTime;
+        velocity.y += Physics.gravity.y * Time.deltaTime;
 
         // Move controller using combined horizontal and vertical velocities
         Vector3 totalMove = horizontalVelocity + new Vector3(0f, velocity.y, 0f);
