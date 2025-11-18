@@ -8,11 +8,6 @@ public abstract class CharacterBase : MonoBehaviour
     [SerializeField]
     public CharacterSOBase characterSOData;
 
-    [Header("Character Base Components")]
-
-    [SerializeField]
-    protected CharacterController characterController;
-
     [field: Header("Character Runtime Data")]
 
     [field: SerializeField]
@@ -35,13 +30,5 @@ public abstract class CharacterBase : MonoBehaviour
         }
 
         characterSOData = Instantiate(characterSOData);
-
-        if (!characterController)
-        {
-            Debug.LogError($"Character {name} is missing its Character Controller component. " +
-                           "One will be added but the character and its movement might not work correctly!");
-
-            characterController = gameObject.AddComponent<CharacterController>();
-        }
     }
 }

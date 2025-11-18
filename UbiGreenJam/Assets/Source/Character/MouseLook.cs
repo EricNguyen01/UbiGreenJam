@@ -1,28 +1,94 @@
-using JetBrains.Annotations;
 using UnityEngine;
 
-public class MouseLook : MonoBehaviour
+[DisallowMultipleComponent]
+public class MouseLook : CharacterComponentBase
 {
-    public float mouseSensitivity = 100f;
-    public Transform playerBody;
-    float xRotation = 0f;
+    [field: Header("Mouse Look Components")]
+
+    [field: SerializeField]
+    public Camera playerCam { get; private set; }
+
+    private float mouseHorizontalSensitivity = 450f;
+
+    private float mouseVerticalSensitivity = 800.0f;
+
+    private Transform characterTransform;
+
+    float horizontalRotationVal = 0.0f;
+
+    float verticalRotationVal = 0.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-{ 
+    protected override void Start()
+    { 
+        base.Start();
+
         Cursor.lockState = CursorLockMode.Locked;
+
+        if (!playerCam)
+        {
+            Camera cam = Camera.main;
+
+            Vector3 assumeHeadPos = transform.position + Vector3.up * 1.6f;
+
+            if (characterUsingComponent && characterUsingComponent.GetType() == typeof(PlayerCharacter))
+            {
+                PlayerCharacter playerChar = (PlayerCharacter)characterUsingComponent;
+
+                if(playerChar.characterMovement && playerChar.characterMovement.characterController)
+                {
+                    CharacterController charController = playerChar.characterMovement.characterController;
+
+                    assumeHeadPos = transform.position + charController.center + new Vector3(0.0f, charController.height / 3.0f, 0.0f);
+                }
+            }
+
+            if (!cam)
+            {
+                cam = new GameObject("PlayerCam").AddComponent<Camera>();
+            }
+
+            cam.transform.position = assumeHeadPos;
+
+            cam.transform.SetParent(transform);
+
+            playerCam = cam;
+        }
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
-    float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-    float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        if (!enabled) return;
 
-        xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        float mouseX = Input.GetAxis("Mouse X") * mouseHorizontalSensitivity * Time.deltaTime;
 
-        transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-        playerBody.Rotate(Vector3.up * mouseX);
+        float mouseY = Input.GetAxis("Mouse Y") * mouseVerticalSensitivity * Time.deltaTime;
+
+        verticalRotationVal -= mouseY;
+
+        verticalRotationVal = Mathf.Clamp(verticalRotationVal, -85.0f, 85.0f);
+
+        if (characterTransform) characterTransform.Rotate(Vector3.up * mouseX);
+    }
+
+    private void LateUpdate()
+    {
+        if(!enabled) return;
+
+        if (playerCam) playerCam.transform.localRotation = Quaternion.Lerp(playerCam.transform.localRotation, Quaternion.Euler(verticalRotationVal, 0f, 0f), Time.fixedDeltaTime);
+    }
+
+    public override bool InitCharacterComponentFrom(CharacterBase character)
+    {
+        if (!base.InitCharacterComponentFrom(character)) return false;
+
+        characterTransform = character.transform;
+
+        mouseHorizontalSensitivity = character.characterSOData.mouseHorizontalSensitivity;
+
+        mouseVerticalSensitivity = character.characterSOData.mouseVerticalSensitivity;
+
+        return true;
     }
 }
