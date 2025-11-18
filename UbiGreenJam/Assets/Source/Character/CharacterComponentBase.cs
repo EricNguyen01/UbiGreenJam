@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[DisallowMultipleComponent]
 public abstract class CharacterComponentBase : MonoBehaviour
 {
     [Header("Character Component Base Data")]

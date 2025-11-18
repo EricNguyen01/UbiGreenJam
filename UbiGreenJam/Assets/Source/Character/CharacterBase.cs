@@ -1,21 +1,12 @@
 using UnityEngine;
 
 [DisallowMultipleComponent]
-[RequireComponent(typeof(CharacterMovement), typeof(MouseLook))]
 public abstract class CharacterBase : MonoBehaviour
 {
     [Header("Character SO Data")]
 
     [SerializeField]
     public CharacterSOBase characterSOData;
-
-    [Header("Character Base Components")]
-
-    [SerializeField]
-    protected MouseLook characterMouseLook;
-
-    [SerializeField]
-    protected CharacterMovement characterMovement;
 
     [field: Header("Character Runtime Data")]
 
@@ -39,20 +30,5 @@ public abstract class CharacterBase : MonoBehaviour
         }
 
         characterSOData = Instantiate(characterSOData);
-
-        if (!characterMovement)
-        {
-            TryGetComponent<CharacterMovement>(out characterMovement);
-        }
-
-        if (!characterMovement)
-        {
-            Debug.LogError($"Character {name} is missing its Character Movement component. " +
-                           "One will be added but the character and its movement might not work correctly!");
-
-            characterMovement = gameObject.AddComponent<CharacterMovement>();
-        }
-
-        characterMovement.InitCharacterComponentFrom(this);
     }
 }

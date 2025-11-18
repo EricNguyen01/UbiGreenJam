@@ -1,12 +1,13 @@
 using UnityEngine;
 
+[DisallowMultipleComponent]
 [RequireComponent(typeof(CharacterController))]
 public class CharacterMovement : CharacterComponentBase
 {
-    [Header("Character Movement Components")]
+    [field: Header("Character Movement Components")]
 
-    [SerializeField]
-    private CharacterController characterController;
+    [field: SerializeField]
+    public CharacterController characterController { get; private set; }
 
     [SerializeField]
     private Rigidbody characterRigidbody;
@@ -35,20 +36,21 @@ public class CharacterMovement : CharacterComponentBase
     private Vector3 velocity;
 
     // Mid-air control settings
+
     // How much control the player has while in the air (1 = full control, 0 = no control)
-    public float airControlMultiplier = 0.5f;
+    private float airControlMultiplier = 0.5f;
 
     // How quickly horizontal velocity approaches the target while in the air
-    public float airAcceleration = 10f;
+    private float airAcceleration = 10f;
 
     // Internal horizontal velocity used to smoothly blend ground/air control
-    Vector3 horizontalVelocity;
+    private Vector3 horizontalVelocity;
 
     private void Awake()
     {
         if (!characterController)
         {
-            TryGetComponent<CharacterController>(out characterController);
+            characterController = GetComponent<CharacterController>();
         }
 
         if (!characterController)
@@ -87,7 +89,7 @@ public class CharacterMovement : CharacterComponentBase
             }
             else
             {
-                groundCheckPos = transform.position - Vector3.up * 1.5f;
+                groundCheckPos = transform.position - Vector3.up * 1.56f;
             }
         }
         else
@@ -175,6 +177,22 @@ public class CharacterMovement : CharacterComponentBase
 
         jumpHeight = character.characterSOData.jumpHeight;
 
+        airControlMultiplier = character.characterSOData.airControlMultiplier;
+
+        airAcceleration = character.characterSOData.airAcceleration;
+
         return true;
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmosSelected()
+    {
+        if (groundCheckTransform)
+        {
+            Gizmos.color = Color.green;
+
+            Gizmos.DrawSphere(groundCheckTransform.transform.position, groundDistance);
+        }
+    }
+#endif
 }
