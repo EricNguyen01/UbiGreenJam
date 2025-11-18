@@ -265,7 +265,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6455808669407517769}
   - component: {fileID: 1767045755399559214}
-  - component: {fileID: 5191904381768013319}
   - component: {fileID: 2449258313410792696}
   - component: {fileID: 8943825040122416354}
   - component: {fileID: 3683286367268374399}
@@ -320,33 +319,6 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
---- !u!54 &5191904381768013319
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4774642177713019661}
-  serializedVersion: 4
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 122
-  m_CollisionDetection: 2
 --- !u!114 &2449258313410792696
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,7 +349,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterUsingComponent: {fileID: 0}
   <characterController>k__BackingField: {fileID: 1767045755399559214}
-  characterRigidbody: {fileID: 5191904381768013319}
   groundCheckTransform: {fileID: 1679609045589216886}
   groundMask:
     serializedVersion: 2

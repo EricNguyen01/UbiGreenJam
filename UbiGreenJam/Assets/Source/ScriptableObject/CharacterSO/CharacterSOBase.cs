@@ -29,7 +29,7 @@ public class CharacterSOBase : ScriptableObject
     public float speed { get; set; } = 12.0f;
 
     [field: SerializeField]
-    [field: Min(5.0f)]
+    [field: Min(1.0f)]
     public float jumpHeight { get; set; } = 4.0f;
 
     // How much control the player has while in the air (1 = full control, 0 = no control)
@@ -41,6 +41,10 @@ public class CharacterSOBase : ScriptableObject
     [field: SerializeField]
     [field: Min(1.0f)]
     public float airAcceleration { get; private set; } = 10f;
+
+    [field: SerializeField]
+    [field: Min(1.0f)]
+    public float gravity { get; private set; } = -20.0f;
 
     [field: Header("Character Mouse Look Data")]
 

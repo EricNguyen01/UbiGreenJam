@@ -9,9 +9,6 @@ public class CharacterMovement : CharacterComponentBase
     [field: SerializeField]
     public CharacterController characterController { get; private set; }
 
-    [SerializeField]
-    private Rigidbody characterRigidbody;
-
     [Header("Character Movement Settings")]
 
     [Header("Character Ground Check Settings")]
@@ -32,6 +29,8 @@ public class CharacterMovement : CharacterComponentBase
     private float speed = 12.0f;
 
     private float jumpHeight = 3.0f;
+
+    private float gravity = -9.81f;
 
     private Vector3 velocity;
 
@@ -59,16 +58,6 @@ public class CharacterMovement : CharacterComponentBase
                            "One will be added but the character and its movement might not work correctly!");
 
             characterController = gameObject.AddComponent<CharacterController>();
-        }
-
-        if (!characterRigidbody)
-        {
-            TryGetComponent<Rigidbody>(out characterRigidbody);
-
-            if (!characterRigidbody)
-            {
-                characterRigidbody = gameObject.AddComponent<Rigidbody>();
-            }
         }
 
         if(!groundCheckTransform)
@@ -150,23 +139,17 @@ public class CharacterMovement : CharacterComponentBase
         {
             if (isGrounded)
             {
-                velocity.y = Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y);
+                velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             }
         }
 
         // Apply gravity
-        velocity.y += Physics.gravity.y * Time.deltaTime;
+        velocity.y += gravity * Time.deltaTime;
 
         // Move controller using combined horizontal and vertical velocities
         Vector3 totalMove = horizontalVelocity + new Vector3(0f, velocity.y, 0f);
 
         characterController.Move(totalMove * Time.deltaTime);
-    }
-
-    private bool IsGrounded()
-    {
-
-        return false;
     }
 
     public override bool InitCharacterComponentFrom(CharacterBase character)
@@ -180,6 +163,8 @@ public class CharacterMovement : CharacterComponentBase
         airControlMultiplier = character.characterSOData.airControlMultiplier;
 
         airAcceleration = character.characterSOData.airAcceleration;
+
+        gravity = character.characterSOData.gravity;
 
         return true;
     }

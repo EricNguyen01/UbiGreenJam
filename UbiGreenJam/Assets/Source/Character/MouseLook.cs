@@ -14,8 +14,6 @@ public class MouseLook : CharacterComponentBase
 
     private Transform characterTransform;
 
-    float horizontalRotationVal = 0.0f;
-
     float verticalRotationVal = 0.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -70,13 +68,15 @@ public class MouseLook : CharacterComponentBase
         verticalRotationVal = Mathf.Clamp(verticalRotationVal, -85.0f, 85.0f);
 
         if (characterTransform) characterTransform.Rotate(Vector3.up * mouseX);
+
+        if (playerCam) playerCam.transform.localRotation = Quaternion.Euler(verticalRotationVal, 0f, 0f);
     }
 
     private void LateUpdate()
     {
         if(!enabled) return;
 
-        if (playerCam) playerCam.transform.localRotation = Quaternion.Lerp(playerCam.transform.localRotation, Quaternion.Euler(verticalRotationVal, 0f, 0f), Time.fixedDeltaTime);
+        if (playerCam) playerCam.transform.localRotation = Quaternion.Euler(verticalRotationVal, 0f, 0f);
     }
 
     public override bool InitCharacterComponentFrom(CharacterBase character)
