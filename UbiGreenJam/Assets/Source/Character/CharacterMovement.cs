@@ -155,7 +155,7 @@ public class CharacterMovement : CharacterComponentBase
     public override bool InitCharacterComponentFrom(CharacterBase character)
     {
         if (!base.InitCharacterComponentFrom(character)) return false;
-
+        
         speed = character.characterSOData.speed;
 
         jumpHeight = character.characterSOData.jumpHeight;
