@@ -1,6 +1,7 @@
 using UnityEngine;
 
 [DisallowMultipleComponent]
+[RequireComponent(typeof(CharacterMovement))]
 public abstract class CharacterBase : MonoBehaviour
 {
     [Header("Character SO Data")]
@@ -11,7 +12,10 @@ public abstract class CharacterBase : MonoBehaviour
     [Header("Character Base Components")]
 
     [SerializeField]
-    protected CharacterController characterController;
+    protected Camera characterCamera;
+
+    [SerializeField]
+    protected CharacterMovement characterMovement;
 
     [field: Header("Character Runtime Data")]
 
@@ -36,12 +40,19 @@ public abstract class CharacterBase : MonoBehaviour
 
         characterSOData = Instantiate(characterSOData);
 
-        if (!characterController)
+        if (!characterMovement)
         {
-            Debug.LogError($"Character {name} is missing its Character Controller component. " +
+            TryGetComponent<CharacterMovement>(out characterMovement);
+        }
+
+        if (!characterMovement)
+        {
+            Debug.LogError($"Character {name} is missing its Character Movement component. " +
                            "One will be added but the character and its movement might not work correctly!");
 
-            characterController = gameObject.AddComponent<CharacterController>();
+            characterMovement = gameObject.AddComponent<CharacterMovement>();
         }
+
+        characterMovement.InitCharacterComponentFrom(this);
     }
 }

@@ -18,9 +18,9 @@ public class CharacterSOBase : ScriptableObject
 
     [field: SerializeField]
     [field: Min(5.0f)]
-    public float jumpHeight { get; set; } = 10.0f;
+    public float jumpHeight { get; set; } = 4.0f;
 
     [field: SerializeField]
     [field: Min(1.0f)]
-    public float fixSpeed { get; set; } = 4.0f;
+    public float fixSpeed { get; set; } = 5.0f;
 }
