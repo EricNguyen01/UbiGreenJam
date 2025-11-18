@@ -72,13 +72,6 @@ public class MouseLook : CharacterComponentBase
         if (playerCam) playerCam.transform.localRotation = Quaternion.Euler(verticalRotationVal, 0f, 0f);
     }
 
-    private void LateUpdate()
-    {
-        if(!enabled) return;
-
-        if (playerCam) playerCam.transform.localRotation = Quaternion.Euler(verticalRotationVal, 0f, 0f);
-    }
-
     public override bool InitCharacterComponentFrom(CharacterBase character)
     {
         if (!base.InitCharacterComponentFrom(character)) return false;
