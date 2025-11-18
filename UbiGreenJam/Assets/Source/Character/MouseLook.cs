@@ -8,11 +8,15 @@ public class MouseLook : CharacterComponentBase
     [field: SerializeField]
     public Camera playerCam { get; private set; }
 
-    private float mouseSensitivity = 100f;
+    private float mouseHorizontalSensitivity = 450f;
+
+    private float mouseVerticalSensitivity = 800.0f;
 
     private Transform characterTransform;
 
-    float xRotation = 0f;
+    float horizontalRotationVal = 0.0f;
+
+    float verticalRotationVal = 0.0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
@@ -57,17 +61,22 @@ public class MouseLook : CharacterComponentBase
     {
         if (!enabled) return;
 
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * mouseHorizontalSensitivity * Time.deltaTime;
 
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseVerticalSensitivity * Time.deltaTime;
 
-        xRotation -= mouseY;
+        verticalRotationVal -= mouseY;
 
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        verticalRotationVal = Mathf.Clamp(verticalRotationVal, -85.0f, 85.0f);
 
-        playerCam.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        if (characterTransform) characterTransform.Rotate(Vector3.up * mouseX);
+    }
 
-        characterTransform.Rotate(Vector3.up * mouseX);
+    private void LateUpdate()
+    {
+        if(!enabled) return;
+
+        if (playerCam) playerCam.transform.localRotation = Quaternion.Lerp(playerCam.transform.localRotation, Quaternion.Euler(verticalRotationVal, 0f, 0f), Time.fixedDeltaTime);
     }
 
     public override bool InitCharacterComponentFrom(CharacterBase character)
@@ -76,7 +85,9 @@ public class MouseLook : CharacterComponentBase
 
         characterTransform = character.transform;
 
-        mouseSensitivity = character.characterSOData.mouseLookSensitivity;
+        mouseHorizontalSensitivity = character.characterSOData.mouseHorizontalSensitivity;
+
+        mouseVerticalSensitivity = character.characterSOData.mouseVerticalSensitivity;
 
         return true;
     }

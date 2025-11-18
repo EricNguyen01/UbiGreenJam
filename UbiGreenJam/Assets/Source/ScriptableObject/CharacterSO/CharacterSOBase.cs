@@ -44,5 +44,11 @@ public class CharacterSOBase : ScriptableObject
 
     [field: Header("Character Mouse Look Data")]
 
-    public float mouseLookSensitivity { get; private set; } = 100.0f;
+    [field: SerializeField]
+    [field: Min(100.0f)]
+    public float mouseHorizontalSensitivity { get; private set; } = 450.0f;
+
+    [field: SerializeField]
+    [field: Min(100.0f)]
+    public float mouseVerticalSensitivity { get; private set; } = 800.0f;
 }
