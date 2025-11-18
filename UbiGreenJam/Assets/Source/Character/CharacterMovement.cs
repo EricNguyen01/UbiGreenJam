@@ -16,8 +16,6 @@ public class CharacterMovement : CharacterComponentBase
     [SerializeField]
     private Transform groundCheckTransform;
 
-    private Vector3 groundCheckPos = Vector3.zero;
-
     [SerializeField]
     private LayerMask groundMask;
 
@@ -62,24 +60,24 @@ public class CharacterMovement : CharacterComponentBase
 
         if(!groundCheckTransform)
         {
+            Vector3 bottomCenter;
+
             if (characterController)
             {
-                Vector3 bottomCenter = transform.position + characterController.center - new Vector3(0.0f, characterController.height / 2.0f, 0.0f);
-
-                GameObject go = new GameObject("CharacterGroundCheck");
-
-                go.transform.position = bottomCenter;
-
-                go.transform.SetParent(transform);
-
-                groundCheckTransform = go.transform;
-
-                groundCheckPos = go.transform.position;
+                bottomCenter = transform.position + characterController.center - new Vector3(0.0f, characterController.height / 2.0f, 0.0f);
             }
             else
             {
-                groundCheckPos = transform.position - Vector3.up * 1.56f;
+                bottomCenter = transform.position - Vector3.up * 1.56f;
             }
+
+            GameObject go = new GameObject("CharacterGroundCheck");
+
+            go.transform.position = bottomCenter;
+
+            go.transform.SetParent(transform);
+
+            groundCheckTransform = go.transform;
         }
         else
         {
@@ -87,8 +85,6 @@ public class CharacterMovement : CharacterComponentBase
             {
                 groundCheckTransform.SetParent(transform);
             }
-
-            groundCheckPos = groundCheckTransform.position;
         }
     }
 
@@ -97,7 +93,7 @@ public class CharacterMovement : CharacterComponentBase
     {
         if (!enabled) return;
 
-        isGrounded = Physics.CheckSphere(groundCheckPos, groundDistance, groundMask);
+        isGrounded = Physics.CheckSphere(groundCheckTransform.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
         {
@@ -140,6 +136,8 @@ public class CharacterMovement : CharacterComponentBase
             if (isGrounded)
             {
                 velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+
+                isGrounded = false;
             }
         }
 
