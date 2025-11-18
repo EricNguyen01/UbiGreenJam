@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [DisallowMultipleComponent]
-[RequireComponent(typeof(CharacterMovement))]
+[RequireComponent(typeof(CharacterMovement), typeof(MouseLook))]
 public abstract class CharacterBase : MonoBehaviour
 {
     [Header("Character SO Data")]
@@ -12,7 +12,7 @@ public abstract class CharacterBase : MonoBehaviour
     [Header("Character Base Components")]
 
     [SerializeField]
-    protected Camera characterCamera;
+    protected MouseLook characterMouseLook;
 
     [SerializeField]
     protected CharacterMovement characterMovement;

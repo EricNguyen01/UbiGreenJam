@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[DisallowMultipleComponent]
 [RequireComponent(typeof(CharacterController))]
 public class CharacterMovement : CharacterComponentBase
 {
@@ -102,16 +101,8 @@ public class CharacterMovement : CharacterComponentBase
         }
     }
 
-    private void Start()
-    {
-        if (!characterUsingComponent || !characterUsingComponent.characterSOData)
-        {
-            enabled = false;
-        }
-    }
-
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if (!enabled) return;
 
@@ -123,6 +114,7 @@ public class CharacterMovement : CharacterComponentBase
         }
 
         float x = Input.GetAxis("Horizontal");
+
         float z = Input.GetAxis("Vertical");
 
         Vector3 inputDirection = transform.right * x + transform.forward * z;

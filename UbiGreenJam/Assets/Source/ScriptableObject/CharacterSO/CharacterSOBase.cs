@@ -3,7 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "CharacterSOBase", menuName = "Scriptable Objects/CharacterSOBase")]
 public class CharacterSOBase : ScriptableObject
 {
-    [field: Header("Character Base Data")]
+    [field: Header("Character Movement Data")]
 
     [field: SerializeField]
     public bool isAICharacter { get; private set; } = false;
@@ -23,4 +23,8 @@ public class CharacterSOBase : ScriptableObject
     [field: SerializeField]
     [field: Min(1.0f)]
     public float fixSpeed { get; set; } = 5.0f;
+
+    [field: Header("Character Mouse Look Data")]
+
+    public float mouseLookSensitivity { get; private set; } = 100.0f;
 }

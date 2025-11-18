@@ -9,6 +9,17 @@ public abstract class CharacterComponentBase : MonoBehaviour
     [ReadOnlyInspector]
     protected CharacterBase characterUsingComponent;
 
+    protected virtual void Start()
+    {
+        if (!characterUsingComponent || !characterUsingComponent.characterSOData)
+        {
+            Debug.LogError($"Character Component {name} doesn't have a valid ref to a Character or its referenced Character doesn't have any Character SO Data. " +
+                           "Disabling character component...");
+
+            enabled = false;
+        }
+    }
+
     public virtual bool InitCharacterComponentFrom(CharacterBase character)
     {
         if (!character || !character.characterSOData)
