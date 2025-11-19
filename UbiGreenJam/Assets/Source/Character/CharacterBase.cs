@@ -12,7 +12,7 @@ public abstract class CharacterBase : MonoBehaviour
 
     [field: SerializeField]
     [field: ReadOnlyInspector]
-    public CarryableItem playerHoldingItem { get; private set; }
+    // public CarryableItem playerHoldingItem { get; private set; }
 
 
     protected virtual void Awake()
