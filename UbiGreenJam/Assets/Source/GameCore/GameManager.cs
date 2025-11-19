@@ -1,28 +1,29 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace GameCore
 {
-    /// <summary>
-    /// Central game manager. Persistent across scenes.
-    /// Controls game state (phases), holds GameStats, references to data like StormData. Will update more later
-    /// </summary>
     public class GameManager : MonoBehaviour
     {
         public static GameManager Instance { get; private set; }
 
-        [Header("Data & runtime refs")]
+        [Header("Scenes")]
+        public string uiSceneName = "MainMenu";
+        public string gameSceneName = "GameScene";
+
+        private bool _uiSceneLoaded = false;
+        private UIManager _uiManager;
+
         public GameStats gameStats;
-        public ScriptableStormData stormDataAsset; // assign via Inspector
+        public ScriptableStormData stormDataAsset;
+        public InteractableItemDatabase interactableDatabase;
+        public InteractableBase currentHeldItem;
 
-        // Current state
         private GameStateBase _currentState;
-
-        // Runtime storm controller created from ScriptableStormData
         public StormBase CurrentStorm { get; private set; }
 
         #region Events
-        // Important events other systems can subscribe to
         public event Action<GameStateBase> OnStateChanged;
         public event Action OnGamePaused;
         public event Action OnGameResumed;
@@ -41,61 +42,73 @@ namespace GameCore
             DontDestroyOnLoad(gameObject);
 
             if (gameStats == null)
-                gameStats = new GameStats(); // minimal fallback
+                gameStats = new GameStats();
 
-            // instantiate runtime storm controller from ScriptableObject
             if (stormDataAsset != null)
                 CurrentStorm = new StormBase(stormDataAsset);
         }
 
         private void Start()
         {
-            // Start with main menu state by default
+            LoadUIScene();
             ChangeState(new GameStartMenuState(this));
         }
 
         private void Update()
         {
             _currentState?.OnUpdate();
+
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                StartGame();
+            }
         }
+
+        // ------------------------------------------------------------
+        // SCENE LOADING
+        // ------------------------------------------------------------
+
+        private void LoadUIScene()
+        {
+            if (_uiSceneLoaded) return;
+
+            SceneManager.LoadSceneAsync(uiSceneName, LoadSceneMode.Additive)
+                .completed += (op) =>
+                {
+                    _uiSceneLoaded = true;
+
+                    Scene uiScene = SceneManager.GetSceneByName(uiSceneName);
+                    foreach (var obj in uiScene.GetRootGameObjects())
+                    {
+                        _uiManager = obj.GetComponentInChildren<UIManager>(true);
+                        if (_uiManager != null) break;
+                    }
+
+                    Debug.Log("UI Scene Loaded");
+                };
+        }
+
+        private void StartGame()
+        {
+            SceneManager.LoadSceneAsync(gameSceneName, LoadSceneMode.Single)
+                .completed += (op) =>
+                {
+                    _uiManager?.ShowUI(false);
+                    StartPreparePhase();
+                    Debug.Log("Game Scene Loaded, UI hidden");
+                };
+        }
+
 
         public void ChangeState(GameStateBase newState)
         {
-            if (newState == null) return;
-
             _currentState?.OnExit();
             _currentState = newState;
-            _currentState.OnEnter();
+            _currentState?.OnEnter();
 
             OnStateChanged?.Invoke(_currentState);
         }
 
-        public void PauseGame()
-        {
-            // you can also set timeScale if appropriate
-            OnGamePaused?.Invoke();
-            ChangeState(new GamePauseState(this, _currentState)); // pause wrapper
-        }
-
-        public void ResumeFromPause()
-        {
-            OnGameResumed?.Invoke();
-
-            // If current state is a GamePauseState we can restore previous state
-            if (_currentState is GamePauseState pauseState)
-            {
-                ChangeState(pauseState.RestoreState ?? new GameStartMenuState(this));
-            }
-        }
-
-        public void EndGame()
-        {
-            OnGameEnded?.Invoke();
-            ChangeState(new GameEndState(this));
-        }
-
-        #region Helpers
-        // Convenience methods called by UI/buttons
         public void StartPreparePhase()
         {
             ChangeState(new PreparePhaseState(this));
@@ -103,7 +116,6 @@ namespace GameCore
 
         public void StartStormPhase()
         {
-            // ensure storm data present
             if (CurrentStorm == null && stormDataAsset != null)
                 CurrentStorm = new StormBase(stormDataAsset);
 
@@ -114,6 +126,22 @@ namespace GameCore
         {
             ChangeState(new StormEndPhaseState(this));
         }
-        #endregion
+        public void SetHeldItem(InteractableBase item)
+        {
+            currentHeldItem = item;
+            Debug.Log("Player is holding: " + item.itemData.itemName);
+        }
+
+        public void ClearHeldItem()
+        {
+            Debug.Log("Player dropped item");
+            currentHeldItem = null;
+        }
+
+        public bool IsHolding(InteractableItemType type)
+        {
+            if (currentHeldItem == null) return false;
+            return currentHeldItem.itemData.itemType == type;
+        }
     }
 }

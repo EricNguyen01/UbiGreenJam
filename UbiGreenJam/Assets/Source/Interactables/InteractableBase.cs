@@ -1,72 +1,22 @@
-using System.Collections.Generic;
 using UnityEngine;
 
-[DisallowMultipleComponent]
-public abstract class InteractableBase : MonoBehaviour
+public class InteractableBase : MonoBehaviour
 {
-    [Header("Interactable Base Components")]
+    public InteractableItemData itemData;
+    public bool destroyOnPickup = false;
 
-    [SerializeField]
-    protected List<InteractTrigger> interactTriggers = new List<InteractTrigger>();
+    [Header("Runtime State")]
+    public bool isBeingHeld = false;
 
-    [Header("Interactable Base Settings")]
-
-    [SerializeField]
-    [Range(1, 4)]
-    protected int numCharactersInteractAllow = 1;
-
-    [Header("Runtime ReadOnly Data")]
-
-    [SerializeField]
-    [ReadOnlyInspector]
-    protected bool isCarryable = false;
-
-    [SerializeField]
-    [ReadOnlyInspector]
-    public List<CharacterBase> charsInteractedWithList { get; protected set; } = new List<CharacterBase>();
-
-    protected virtual void Awake()
+    private void Reset()
     {
-        foreach(InteractTrigger trigger in GetComponentsInChildren<InteractTrigger>())
+        if (GetComponent<Collider>() == null)
+            gameObject.AddComponent<BoxCollider>();
+
+        if (GetComponent<Rigidbody>() == null)
         {
-            if (!interactTriggers.Contains(trigger))
-                interactTriggers.Add(trigger);
-
-            trigger.SetInteractableParent(this);
-        }
-    }
-
-    protected virtual void OnValidate() { }
-
-    public virtual bool OnInteractBy(CharacterBase characterInteracted)
-    {
-        if (!characterInteracted) return false;
-
-        if(charsInteractedWithList.Count == 0)
-        {
-            charsInteractedWithList.Add(characterInteracted);
-
-            return true;
-        }
-
-        if (charsInteractedWithList.Contains(characterInteracted)) return true;
-
-        if (charsInteractedWithList.Count >= numCharactersInteractAllow) return false;
-
-        charsInteractedWithList.Add(characterInteracted);
-
-        return true;
-    }
-
-    public virtual void OnReleaseBy(CharacterBase characterInteracted)
-    {
-        if (!characterInteracted) return;
-
-        if (charsInteractedWithList.Contains(characterInteracted))
-        {
-            charsInteractedWithList.Remove(characterInteracted);
-
-            return;
+            Rigidbody rb = gameObject.AddComponent<Rigidbody>();
+            rb.isKinematic = false;
         }
     }
 }
