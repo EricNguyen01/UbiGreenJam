@@ -163,12 +163,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2f41ff50366c2f4d96f73149cc12dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSceneName: UIManager
+  gameSceneName: GameScene
   gameStats:
     score: 0
     playerLives: 3
     wavesCompleted: 0
   stormDataAsset: {fileID: 0}
   interactableDatabase: {fileID: 11400000, guid: b9afdb12002b0894b85dacdb992c805d, type: 2}
+  currentHeldItem: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

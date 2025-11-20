@@ -40,8 +40,9 @@ namespace GameCore
 
         void Update()
         {
+            CheckForInteractablePrompt();
             // Pick on left mouse button press
-            if (Input.GetMouseButtonDown(0) && heldRb == null)
+            if (Input.GetKeyDown(KeyCode.E) && heldRb == null)
             {
                 TryPickupInFront();
             }
@@ -84,7 +85,34 @@ namespace GameCore
                 }
             }
         }
+        void CheckForInteractablePrompt()
+        {
+            Ray ray = aimCamera != null
+                ? new Ray(aimCamera.transform.position, aimCamera.transform.forward)
+                : new Ray(transform.position + Vector3.up * 0.5f, transform.forward);
 
+            if (Physics.Raycast(ray, out RaycastHit hit, pickupRange, pickupLayer, QueryTriggerInteraction.Ignore))
+            {
+                var interactable = hit.collider.GetComponent<InteractableBase>();
+                if (interactable != null && !interactable.isBeingHeld)
+                {
+                    interactable.ShowPrompt();
+                }
+            }
+            else
+            {
+                HideAllPrompts();
+            }
+        }
+
+        void HideAllPrompts()
+        {
+            var allInteractables = FindObjectsOfType<InteractableBase>();
+            foreach (var item in allInteractables)
+            {
+                item.HidePrompt();
+            }
+        }
         void Pickup(Rigidbody rb)
         {
             if (rb == null) return;
@@ -92,6 +120,7 @@ namespace GameCore
             if (interactable != null)
             {
                 interactable.isBeingHeld = true;
+                interactable.HidePrompt();
                 GameManager.Instance.SetHeldItem(interactable);
             }
 
