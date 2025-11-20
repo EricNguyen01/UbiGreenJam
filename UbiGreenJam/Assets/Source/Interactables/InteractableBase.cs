@@ -7,16 +7,21 @@ public class InteractableBase : MonoBehaviour
 
     [Header("Runtime State")]
     public bool isBeingHeld = false;
+    [Header("UI")]
+    public InteractablePopupUI popupUI;
 
-    private void Reset()
+    public void ShowPrompt()
     {
-        if (GetComponent<Collider>() == null)
-            gameObject.AddComponent<BoxCollider>();
+        if (popupUI == null || isBeingHeld) return;
+        popupUI.transform.position = transform.position + Vector3.up * 0.01f;
+        popupUI.transform.localScale = Vector3.one * 0.005f;
+        string name = itemData.itemName;
+        string prompt = itemData.isCarryable ? "E PICK UP" : "E OPEN";
+        popupUI.Show(name, prompt);
+    }
 
-        if (GetComponent<Rigidbody>() == null)
-        {
-            Rigidbody rb = gameObject.AddComponent<Rigidbody>();
-            rb.isKinematic = false;
-        }
+    public void HidePrompt()
+    {
+        popupUI?.Hide();
     }
 }

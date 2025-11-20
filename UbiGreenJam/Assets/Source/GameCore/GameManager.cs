@@ -9,7 +9,7 @@ namespace GameCore
         public static GameManager Instance { get; private set; }
 
         [Header("Scenes")]
-        public string uiSceneName = "MainMenu";
+        public string uiSceneName = "UIManager";
         public string gameSceneName = "GameScene";
 
         private bool _uiSceneLoaded = false;
@@ -57,11 +57,6 @@ namespace GameCore
         private void Update()
         {
             _currentState?.OnUpdate();
-
-            if (Input.GetKeyDown(KeyCode.Return))
-            {
-                StartGame();
-            }
         }
 
         // ------------------------------------------------------------
@@ -80,6 +75,7 @@ namespace GameCore
                     Scene uiScene = SceneManager.GetSceneByName(uiSceneName);
                     foreach (var obj in uiScene.GetRootGameObjects())
                     {
+                        DontDestroyOnLoad(obj);
                         _uiManager = obj.GetComponentInChildren<UIManager>(true);
                         if (_uiManager != null) break;
                     }
@@ -88,7 +84,7 @@ namespace GameCore
                 };
         }
 
-        private void StartGame()
+        public void StartGame()
         {
             SceneManager.LoadSceneAsync(gameSceneName, LoadSceneMode.Single)
                 .completed += (op) =>
