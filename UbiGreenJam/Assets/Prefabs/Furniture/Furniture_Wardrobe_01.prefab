@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb63c19f45a9b5644821479dbe57f710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: 885348e552f51034686f51cbc836e2c4, type: 2}
   destroyOnPickup: 0
   isBeingHeld: 0
   popupUI: {fileID: 7575104754829343017}

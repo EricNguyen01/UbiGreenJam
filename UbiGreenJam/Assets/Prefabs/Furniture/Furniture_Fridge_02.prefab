@@ -139,15 +139,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 021213b5eba77904097e0f5aa1a99d72, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -19.782585
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 021213b5eba77904097e0f5aa1a99d72, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -2.75
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 021213b5eba77904097e0f5aa1a99d72, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.006213188
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 021213b5eba77904097e0f5aa1a99d72, type: 3}
       propertyPath: m_LocalRotation.w
@@ -235,7 +235,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -782561200264053565, guid: 021213b5eba77904097e0f5aa1a99d72, type: 3}
 --- !u!54 &8619347474206901562
@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb63c19f45a9b5644821479dbe57f710, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 0}
+  itemData: {fileID: 11400000, guid: eb39a39f477e8df42a031e86dd0f2d9f, type: 2}
   destroyOnPickup: 0
   isBeingHeld: 0
   popupUI: {fileID: 75929003921512435}
