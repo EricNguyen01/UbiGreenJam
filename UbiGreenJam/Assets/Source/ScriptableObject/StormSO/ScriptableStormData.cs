@@ -1,3 +1,4 @@
+using CrossClimbLite;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Game/StormData", fileName = "NewStormData")]
@@ -36,32 +37,24 @@ public class ScriptableStormData : ScriptableObject
 
     [field: Header("Damage Per Tick Settings")]
 
+    [field: HelpBox("The below settings are only usable if storm damage type is set to PerTicks", 
+                    UnityEngine.UIElements.HelpBoxMessageType.Warning)]
+
     [field: SerializeField]
     [field: Min(1.0f)]
     public float damagePerTick { get; private set; } = 1.0f;
 
-    private bool applyDamageMultAfterTicks = false;
+    [field: SerializeField]
+    [field: Min(1.0f)]
+    [field: Tooltip("how many ticks should pass before the damage multiplier below is applied")]
+    [field: DisableIf("applyDamageMultAfterTicks", false)]
+    public float numberOfTicksToApplyDamageMult { get; private set; } = 5.0f;
 
     [field: SerializeField]
     [field: Min(1.0f)]
+    [field: Tooltip("the damage multiplier after number of ticks have passed (if allowed)")]
     [field: DisableIf("applyDamageMultAfterTicks", false)]
-    public float numberOfTicksToApplyDamageMult = 5.0f;// how many ticks should pass before the damage multiplier below is applied
-
-    [field: SerializeField]
-    [field: Min(1.0f)]
-    [field: DisableIf("applyDamageMultAfterTicks", false)]
-    public float damageMultToApplyAfterTicks = 1.5f;// the damage multiplier after number of ticks have passed (if allowed)
-
-#if UNITY_EDITOR
-    private void OnValidate()
-    {
-        if(stormDamageType == StormDamageType.PerTick)
-        {
-            applyDamageMultAfterTicks = true;
-        }
-        else applyDamageMultAfterTicks = false;
-    }
-#endif
+    public float damageMultToApplyAfterTicks { get; private set; } = 1.5f;
 
     // Add more parameters: spawn patterns, triggers, thresholds...
 }

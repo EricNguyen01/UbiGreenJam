@@ -10,11 +10,6 @@ public abstract class CharacterBase : MonoBehaviour
 
     [field: Header("Character Runtime Data")]
 
-    [field: SerializeField]
-    [field: ReadOnlyInspector]
-    // public CarryableItem playerHoldingItem { get; private set; }
-
-
     protected virtual void Awake()
     {
         if (!characterSOData)

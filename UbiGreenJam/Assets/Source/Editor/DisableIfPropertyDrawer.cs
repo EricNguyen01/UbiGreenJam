@@ -3,6 +3,7 @@
 
 using UnityEngine;
 using UnityEditor;
+using FMOD;
 
 /*
  * This class contains custom drawer for DisableIfAttribute.cs.
@@ -23,10 +24,18 @@ public class DisableIfPropertyDrawer : PropertyDrawer
 
         boolTargettedProp = property.serializedObject.FindProperty(disableIfAttribute.targettedProperty);
 
-        if (boolTargettedProp == null) Debug.LogWarning("[DisableIf] Invalid Property Name for Attribute: " + 
-                                                        disableIfAttribute.targettedProperty + 
-                                                        " of Object: " + 
+        if(boolTargettedProp == null)
+        {
+            property.serializedObject.FindProperty($"<{disableIfAttribute.targettedProperty}>k__BackingField");
+        }
+
+        if (boolTargettedProp == null)
+        {
+            UnityEngine.Debug.LogWarning("[DisableIf] Invalid Property Name for Attribute: " +
+                                                        disableIfAttribute.targettedProperty +
+                                                        " of Object: " +
                                                         property.serializedObject.targetObject);
+        }
 
         else
         {
