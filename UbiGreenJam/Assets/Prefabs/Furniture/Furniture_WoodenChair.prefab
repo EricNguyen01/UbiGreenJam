@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3ff9e0a63830bb34385d138d6333d89f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.198592
+      value: 8.148592
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3ff9e0a63830bb34385d138d6333d89f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3ff9e0a63830bb34385d138d6333d89f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 16.499998
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3ff9e0a63830bb34385d138d6333d89f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 3ff9e0a63830bb34385d138d6333d89f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c0999236ab32ad94fb08c06e6694fa49, type: 2}
     - target: {fileID: 919132149155446097, guid: 3ff9e0a63830bb34385d138d6333d89f, type: 3}
       propertyPath: m_Name
       value: Furniture_WoodenChair

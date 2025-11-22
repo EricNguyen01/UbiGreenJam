@@ -64,9 +64,13 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 08d6f694c181ad94fad39bf0d56b72e5, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: c0999236ab32ad94fb08c06e6694fa49, type: 2}
     - target: {fileID: 919132149155446097, guid: 08d6f694c181ad94fad39bf0d56b72e5, type: 3}
       propertyPath: m_Name
-      value: table
+      value: Furniture_TableSmall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -130,6 +134,6 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6317805809608689028, guid: 08d6f694c181ad94fad39bf0d56b72e5, type: 3}
