@@ -6,6 +6,7 @@ public class FloodController : MonoBehaviour
     public float maxHeight = 3f;       // world units above base
     public float riseSpeed = 0.5f;     // units per second when rising
     public float lowerSpeed = 0.5f;    // if you want water to go down
+    public PlayerFloodDetector playerFlood;
 
     [Header("Debug")]
     public bool startRisingOnPlay = false;
@@ -17,14 +18,24 @@ public class FloodController : MonoBehaviour
 
     void Start()
     {
-        // store bottom position at start
+        if (!playerFlood)
+            playerFlood = FindObjectOfType<PlayerFloodDetector>();
+
         baseY = transform.position.y;
+
+        if (startRisingOnPlay)
+            isRising = true;
+
         UpdateScaleAndPosition();
-        isRising = startRisingOnPlay;
     }
 
     void Update()
     {
+        if (playerFlood)
+        {
+            playerFlood.waterLevelY = CurrentWaterSurfaceY();
+        }
+
         float dt = Time.deltaTime;
 
         if (isRising)
