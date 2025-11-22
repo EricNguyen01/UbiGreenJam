@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4094971998977859813, guid: a35fccc223f3304418770ea4898d9a91, type: 3}
       propertyPath: m_Name
-      value: Furniture_TrashCan (1) Variant
+      value: Furniture_TrashSmall
       objectReference: {fileID: 0}
     - target: {fileID: 5392632727577928061, guid: a35fccc223f3304418770ea4898d9a91, type: 3}
       propertyPath: m_LocalPosition.x
