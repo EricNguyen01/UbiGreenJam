@@ -75,7 +75,7 @@ public class MouseLook : CharacterComponentBase
         // Optional: disable other main cameras that might persist from menu
         if (disableOtherMainCameras)
         {
-            Camera[] allCams = FindObjectsOfType<Camera>(true);
+            Camera[] allCams = FindObjectsByType<Camera>(FindObjectsSortMode.None);
             foreach (var cam in allCams)
             {
                 if (cam != playerCam && cam.CompareTag("MainCamera"))

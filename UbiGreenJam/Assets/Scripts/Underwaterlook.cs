@@ -24,7 +24,7 @@ public class UnderwaterEffects : MonoBehaviour
 
     void Start()
     {
-        if (!flood) flood = FindObjectOfType<FloodController>();
+        if (!flood) flood = FindAnyObjectByType<FloodController>();
         if (!cam) cam = Camera.main.transform;
 
         defaultFogEnabled = RenderSettings.fog;

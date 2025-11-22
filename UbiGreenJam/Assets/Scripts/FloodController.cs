@@ -19,7 +19,7 @@ public class FloodController : MonoBehaviour
     void Start()
     {
         if (!playerFlood)
-            playerFlood = FindObjectOfType<PlayerFloodDetector>();
+            playerFlood = FindAnyObjectByType<PlayerFloodDetector>();
 
         baseY = transform.position.y;
 
