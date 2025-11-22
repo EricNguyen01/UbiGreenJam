@@ -125,7 +125,7 @@ GameObject:
   - component: {fileID: 4405575071934347467}
   - component: {fileID: 1902749468873847119}
   m_Layer: 0
-  m_Name: (Prb)BedsideLight
+  m_Name: Furninture_BedsideLamp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

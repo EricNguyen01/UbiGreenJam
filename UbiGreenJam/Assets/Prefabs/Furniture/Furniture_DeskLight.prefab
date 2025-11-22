@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 8751830152112990309}
   - component: {fileID: 9020778529480255855}
   m_Layer: 0
-  m_Name: (Prb)DeskLight
+  m_Name: Furniture_DeskLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
