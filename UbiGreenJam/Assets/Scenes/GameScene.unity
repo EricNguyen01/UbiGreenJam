@@ -763,51 +763,6 @@ MonoBehaviour:
   popup: {fileID: 1045735885}
   followSmooth: 15
   billboardToCamera: 1
---- !u!1 &164564908 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4774642177713019661, guid: de09f1e9bfadf5841a1069025d8ebc86, type: 3}
-  m_PrefabInstance: {fileID: 1227435493}
-  m_PrefabAsset: {fileID: 0}
---- !u!143 &164564913 stripped
-CharacterController:
-  m_CorrespondingSourceObject: {fileID: 1767045755399559214, guid: de09f1e9bfadf5841a1069025d8ebc86, type: 3}
-  m_PrefabInstance: {fileID: 1227435493}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &164564915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 164564908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2d89f1b5374a704d9a5620088d0c787, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waterLevelY: 0
-  isInWater: 0
-  submergedAmount: 0
---- !u!114 &164564916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 164564908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9533c518f5256641adf8e21100987a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flood: {fileID: 375958723}
-  cam: {fileID: 485506629}
-  underwaterOverlay: {fileID: 819280835}
-  enterOffset: 0.1
-  exitOffset: 0.2
-  enableFog: 1
-  underwaterFogColor: {r: 0.1, g: 0.35, b: 0.4, a: 1}
-  underwaterFogDensity: 0.05
 --- !u!1001 &219195190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2128,11 +2083,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8375892718228011409, guid: 4ddde72b89e9a1e42b5de002b4331b62, type: 3}
   m_PrefabInstance: {fileID: 476575551}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &485506629 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1899444767315662501, guid: de09f1e9bfadf5841a1069025d8ebc86, type: 3}
-  m_PrefabInstance: {fileID: 1227435493}
   m_PrefabAsset: {fileID: 0}
 --- !u!43 &496527306
 Mesh:
@@ -4621,7 +4571,7 @@ Transform:
   m_GameObject: {fileID: 914459030}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.97, z: -5.78}
+  m_LocalPosition: {x: 12.02, y: -3.97, z: -5.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6407,10 +6357,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3683286367268374399, guid: de09f1e9bfadf5841a1069025d8ebc86, type: 3}
-      propertyPath: sensitivityMultiplier
-      value: 1.5
-      objectReference: {fileID: 0}
+    - target: {fileID: 2047324254944322833, guid: de09f1e9bfadf5841a1069025d8ebc86, type: 3}
+      propertyPath: flood
+      value: 
+      objectReference: {fileID: 375958723}
+    - target: {fileID: 2047324254944322833, guid: de09f1e9bfadf5841a1069025d8ebc86, type: 3}
+      propertyPath: underwaterOverlay
+      value: 
+      objectReference: {fileID: 819280835}
     - target: {fileID: 4774642177713019661, guid: de09f1e9bfadf5841a1069025d8ebc86, type: 3}
       propertyPath: m_Name
       value: Player
@@ -6455,44 +6409,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8943825040122416354, guid: de09f1e9bfadf5841a1069025d8ebc86, type: 3}
-      propertyPath: walkSpeed
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8943825040122416354, guid: de09f1e9bfadf5841a1069025d8ebc86, type: 3}
-      propertyPath: groundCheckOffset
-      value: 0.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8943825040122416354, guid: de09f1e9bfadf5841a1069025d8ebc86, type: 3}
-      propertyPath: waterCurveExponent
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8943825040122416354, guid: de09f1e9bfadf5841a1069025d8ebc86, type: 3}
-      propertyPath: characterController
-      value: 
-      objectReference: {fileID: 164564913}
-    - target: {fileID: 8943825040122416354, guid: de09f1e9bfadf5841a1069025d8ebc86, type: 3}
-      propertyPath: waterSlowCurveExponent
-      value: 0.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 8943825040122416354, guid: de09f1e9bfadf5841a1069025d8ebc86, type: 3}
-      propertyPath: minWaterSpeedMultiplier
-      value: 0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 8943825040122416354, guid: de09f1e9bfadf5841a1069025d8ebc86, type: 3}
-      propertyPath: waterMinSpeedMultiplier
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4774642177713019661, guid: de09f1e9bfadf5841a1069025d8ebc86, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 164564915}
-    - targetCorrespondingSourceObject: {fileID: 4774642177713019661, guid: de09f1e9bfadf5841a1069025d8ebc86, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 164564916}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de09f1e9bfadf5841a1069025d8ebc86, type: 3}
 --- !u!4 &1228724665 stripped
 Transform:
@@ -13146,7 +13066,7 @@ Transform:
   m_GameObject: {fileID: 4889879754152488852}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.97, z: -7.03}
+  m_LocalPosition: {x: 12.02, y: -3.97, z: -7.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

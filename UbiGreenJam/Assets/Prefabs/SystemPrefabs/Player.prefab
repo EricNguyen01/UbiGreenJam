@@ -269,6 +269,8 @@ GameObject:
   - component: {fileID: 8943825040122416354}
   - component: {fileID: 3683286367268374399}
   - component: {fileID: 4604921220379230841}
+  - component: {fileID: 4303890592009586604}
+  - component: {fileID: 2047324254944322833}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -315,7 +317,7 @@ CharacterController:
   m_Height: 2.25
   m_Radius: 0.5
   m_SlopeLimit: 45
-  m_StepOffset: 0.5
+  m_StepOffset: 0.35
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
@@ -332,7 +334,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterSOData: {fileID: 11400000, guid: 3f379070e83bfa44b8592cc49665827e, type: 2}
-  <playerHoldingItem>k__BackingField: {fileID: 0}
   <characterMouseLook>k__BackingField: {fileID: 3683286367268374399}
   <characterMovement>k__BackingField: {fileID: 8943825040122416354}
 --- !u!114 &8943825040122416354
@@ -348,12 +349,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterUsingComponent: {fileID: 0}
-  <characterController>k__BackingField: {fileID: 1767045755399559214}
-  groundCheckTransform: {fileID: 1679609045589216886}
+  characterController: {fileID: 1767045755399559214}
+  walkSpeed: 7
+  acceleration: 12
+  deceleration: 12
+  airControl: 0.5
+  gravity: -16
+  jumpForce: 6
   groundMask:
     serializedVersion: 2
     m_Bits: 8
-  groundDistance: 0.4
+  groundCheckRadius: 0.25
+  groundCheckDistance: 0.15
+  debugGrounded: 0
+  waterMinSpeedMultiplier: 0.2
+  waterCurveExponent: 0.3
+  waterAirDrag: 0.25
+  submergedGravityMultiplier: 0.35
+  buoyancyJump: {x: 2.5, y: 5}
 --- !u!114 &3683286367268374399
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -367,7 +380,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterUsingComponent: {fileID: 0}
-  <playerCam>k__BackingField: {fileID: 2852450458369759517}
+  horizontalSensitivity: 450
+  verticalSensitivity: 450
+  sensitivityMultiplier: 1.5
+  minPitch: -85
+  maxPitch: 85
+  useSmoothing: 0
+  smoothTime: 0.03
+  forceUsePlayerChildCamera: 1
+  disableOtherMainCameras: 1
 --- !u!114 &4604921220379230841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -386,6 +407,41 @@ MonoBehaviour:
     m_Bits: 64
   holdPoint: {fileID: 7470196325706896492}
   aimCamera: {fileID: 2852450458369759517}
+--- !u!114 &4303890592009586604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4774642177713019661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d89f1b5374a704d9a5620088d0c787, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waterLevelY: 0
+  isInWater: 0
+  submergedAmount: 0
+--- !u!114 &2047324254944322833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4774642177713019661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9533c518f5256641adf8e21100987a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flood: {fileID: 0}
+  cam: {fileID: 1899444767315662501}
+  underwaterOverlay: {fileID: 0}
+  enterOffset: 0.1
+  exitOffset: 0.2
+  enableFog: 1
+  underwaterFogColor: {r: 0.1, g: 0.35, b: 0.4, a: 1}
+  underwaterFogDensity: 0.05
 --- !u!1 &7491926938849426850
 GameObject:
   m_ObjectHideFlags: 0
