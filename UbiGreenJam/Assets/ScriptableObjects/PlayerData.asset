@@ -15,11 +15,11 @@ MonoBehaviour:
   <isAICharacter>k__BackingField: 0
   <health>k__BackingField: 100
   <stamina>k__BackingField: 100
-  <fixSpeed>k__BackingField: 5
-  <speed>k__BackingField: 5
+  <fixSpeed>k__BackingField: 7
+  <speed>k__BackingField: 7
   <jumpHeight>k__BackingField: 1.25
   <airControlMultiplier>k__BackingField: 0.5
   <airAcceleration>k__BackingField: 5
   <gravity>k__BackingField: -20
-  <mouseHorizontalSensitivity>k__BackingField: 300
-  <mouseVerticalSensitivity>k__BackingField: 300
+  <mouseHorizontalSensitivity>k__BackingField: 350
+  <mouseVerticalSensitivity>k__BackingField: 350
