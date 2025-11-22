@@ -35,4 +35,8 @@ public class InteractableItemData : ScriptableObject
 
     [TextArea]
     public string specialNote;
+
+    [Header("Economy / Value")]
+    public int cost = 0;
+
 }

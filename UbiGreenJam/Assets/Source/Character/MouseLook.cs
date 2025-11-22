@@ -65,7 +65,7 @@ public class MouseLook : CharacterComponentBase
 
         // 4) Make sure it's parented to player and positioned correctly
         playerCam.transform.SetParent(transform);
-        playerCam.transform.localPosition = new Vector3(0f, 1.6f, 0f);
+        playerCam.transform.localPosition = new Vector3(0f, 1.0f, 0f);
         playerCam.transform.localRotation = Quaternion.identity;
 
         // 5) Ensure THIS is the active MainCamera
