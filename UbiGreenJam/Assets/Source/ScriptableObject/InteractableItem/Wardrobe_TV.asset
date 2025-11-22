@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 600eaffedbbe49347bafe6e066625e79, type: 3}
-  m_Name: Chair
+  m_Name: Wardrobe_TV
   m_EditorClassIdentifier: 
   itemType: 6
-  itemName: Chair
+  itemName: Wardrobe
   icon: {fileID: 0}
-  startingQuantity: 1
-  weight: 0
+  startingQuantity: 70000
+  weight: 3
   isCarryable: 1
   isConsumable: 0
   destroyOnUse: 0
