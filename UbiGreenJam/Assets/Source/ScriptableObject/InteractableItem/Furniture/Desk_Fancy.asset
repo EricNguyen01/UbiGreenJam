@@ -16,9 +16,10 @@ MonoBehaviour:
   itemName: Work Desk
   icon: {fileID: 0}
   startingQuantity: 1000000
-  weight: 2
+  weight: 3
   isCarryable: 1
   isConsumable: 0
   destroyOnUse: 0
   interactionDescription: 
   specialNote: 
+  cost: 0

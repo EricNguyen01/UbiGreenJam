@@ -16,9 +16,10 @@ MonoBehaviour:
   itemName: Single Bed
   icon: {fileID: 0}
   startingQuantity: 2000000
-  weight: 3
+  weight: 4
   isCarryable: 1
   isConsumable: 0
   destroyOnUse: 0
   interactionDescription: 
   specialNote: 
+  cost: 0

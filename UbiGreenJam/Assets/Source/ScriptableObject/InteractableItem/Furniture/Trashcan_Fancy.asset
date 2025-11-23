@@ -16,9 +16,10 @@ MonoBehaviour:
   itemName: Metal Trashcan
   icon: {fileID: 0}
   startingQuantity: 200000
-  weight: 0
+  weight: 1
   isCarryable: 1
   isConsumable: 0
   destroyOnUse: 0
   interactionDescription: 
   specialNote: 
+  cost: 0

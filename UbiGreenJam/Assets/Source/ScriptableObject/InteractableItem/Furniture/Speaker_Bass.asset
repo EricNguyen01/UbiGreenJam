@@ -16,9 +16,10 @@ MonoBehaviour:
   itemName: Bass Speaker
   icon: {fileID: 0}
   startingQuantity: 5000000
-  weight: 0
+  weight: 1
   isCarryable: 1
   isConsumable: 0
   destroyOnUse: 0
   interactionDescription: 
   specialNote: 
+  cost: 0

@@ -16,9 +16,10 @@ MonoBehaviour:
   itemName: Water Dispenser
   icon: {fileID: 0}
   startingQuantity: 3000000
-  weight: 0
+  weight: 2
   isCarryable: 1
   isConsumable: 0
   destroyOnUse: 0
   interactionDescription: 
   specialNote: 
+  cost: 0

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Wardrobe_TV
   m_EditorClassIdentifier: 
   itemType: 6
-  itemName: 'Shelf Wardrobe '
+  itemName: TV Stand
   icon: {fileID: 0}
   startingQuantity: 2400000
   weight: 3
@@ -22,3 +22,4 @@ MonoBehaviour:
   destroyOnUse: 0
   interactionDescription: 
   specialNote: 
+  cost: 0

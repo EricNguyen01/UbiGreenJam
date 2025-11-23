@@ -16,9 +16,10 @@ MonoBehaviour:
   itemName: Vietnamese Wooden Couch
   icon: {fileID: 0}
   startingQuantity: 3000000
-  weight: 1
+  weight: 4
   isCarryable: 1
   isConsumable: 0
   destroyOnUse: 0
   interactionDescription: 
   specialNote: 
+  cost: 0

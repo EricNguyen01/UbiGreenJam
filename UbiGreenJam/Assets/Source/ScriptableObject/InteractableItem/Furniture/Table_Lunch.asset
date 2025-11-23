@@ -16,9 +16,10 @@ MonoBehaviour:
   itemName: Dining Table
   icon: {fileID: 0}
   startingQuantity: 3000000
-  weight: 2
+  weight: 3
   isCarryable: 1
   isConsumable: 0
   destroyOnUse: 0
   interactionDescription: 
   specialNote: 
+  cost: 0

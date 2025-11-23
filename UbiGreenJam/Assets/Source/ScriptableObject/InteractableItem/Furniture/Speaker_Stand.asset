@@ -16,9 +16,10 @@ MonoBehaviour:
   itemName: Standing Speaker
   icon: {fileID: 0}
   startingQuantity: 4000000
-  weight: 0
+  weight: 1
   isCarryable: 1
   isConsumable: 0
   destroyOnUse: 0
   interactionDescription: 
   specialNote: 
+  cost: 0
