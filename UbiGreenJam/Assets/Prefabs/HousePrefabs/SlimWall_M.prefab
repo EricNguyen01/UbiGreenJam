@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1427694383552781731}
   - component: {fileID: 3631703755233333644}
   - component: {fileID: 8530730917758006072}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: SlimWall_M
   m_TagString: Untagged
   m_Icon: {fileID: 0}

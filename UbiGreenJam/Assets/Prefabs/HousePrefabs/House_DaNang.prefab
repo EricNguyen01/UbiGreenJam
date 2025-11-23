@@ -1065,7 +1065,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7957310739177897331}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: House_DaNang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1880,7 +1880,7 @@ GameObject:
   - component: {fileID: 8867279529416680019}
   - component: {fileID: 1077501660291803053}
   - component: {fileID: 1597357127284879540}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WallFiller
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2584,7 +2584,7 @@ GameObject:
   - component: {fileID: 565474194373962110}
   - component: {fileID: 6801903488213638712}
   - component: {fileID: 8921639834629081780}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WallFiller
   m_TagString: Untagged
   m_Icon: {fileID: 0}

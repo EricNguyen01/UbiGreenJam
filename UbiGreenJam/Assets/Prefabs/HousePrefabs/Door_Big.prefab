@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2107897166839319817}
   - component: {fileID: 904701357882189054}
   - component: {fileID: 4207563639782232417}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,7 +365,7 @@ GameObject:
   - component: {fileID: 7633565606201253385}
   - component: {fileID: 6301875326955027044}
   - component: {fileID: 3274021442890548684}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -716,7 +716,7 @@ GameObject:
   - component: {fileID: 6992726200266328898}
   - component: {fileID: 1722126927313549595}
   - component: {fileID: 8852510879447069533}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1062,7 +1062,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6495159210849329828}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Door_Big
   m_TagString: Untagged
   m_Icon: {fileID: 0}
