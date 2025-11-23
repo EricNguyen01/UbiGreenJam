@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6414775428069369643}
   - component: {fileID: 4212043864972537586}
   - component: {fileID: 6365750250324000614}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 4441085189914514363}
   - component: {fileID: 171531475155447355}
   - component: {fileID: 8563757116081799506}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 2686382817742389716}
   - component: {fileID: 2164555081672246226}
   - component: {fileID: 8727410012082598652}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 4262531590587513038}
   - component: {fileID: 8772665810493489898}
   - component: {fileID: 3522423347359135877}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 8610108834410265971}
   - component: {fileID: 1069093050275539949}
   - component: {fileID: 1792991925413087394}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 2284273080685649200}
   - component: {fileID: 3817730215502315408}
   - component: {fileID: 5226964444460818326}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Furniture_Piano
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,6 +366,7 @@ MonoBehaviour:
   destroyOnPickup: 0
   isBeingHeld: 0
   popupUI: {fileID: 7293999969801159425}
+  popupOffset: {x: 0, y: 0.6, z: 0}
 --- !u!54 &5226964444460818326
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -445,6 +446,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Furniture_Piano
       objectReference: {fileID: 0}
+    - target: {fileID: 1897388745164669842, guid: 66d76c9342901584d85cd01c296f78a1, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -463,6 +468,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2284273080685649200}
     m_Modifications:
+    - target: {fileID: 2020878454264186210, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636151938148420439, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5254425859419574900, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -543,9 +556,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5705321185623638238, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7707550971682930861, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
       propertyPath: m_Name
       value: InteractPopup
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707550971682930861, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8840012631494155312, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

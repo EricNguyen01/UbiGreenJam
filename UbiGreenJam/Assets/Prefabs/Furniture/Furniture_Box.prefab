@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8278805838038242406}
     m_Modifications:
+    - target: {fileID: 2020878454264186210, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636151938148420439, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5254425859419574900, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -88,9 +96,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5705321185623638238, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7707550971682930861, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
       propertyPath: m_Name
       value: InteractPopup
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707550971682930861, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8840012631494155312, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -172,6 +192,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c6ee65a17262c4b4595ed6f80b6a2a65, type: 3}
       propertyPath: m_Name
       value: Furniture_Box
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c6ee65a17262c4b4595ed6f80b6a2a65, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -265,3 +289,4 @@ MonoBehaviour:
   destroyOnPickup: 0
   isBeingHeld: 0
   popupUI: {fileID: 2685094765812545743}
+  popupOffset: {x: 0, y: 0.6, z: 0}

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4123331075827449663}
   - component: {fileID: 1865527603841496825}
   - component: {fileID: -2665663483231230615}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Furniture_Shelve_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -138,6 +138,7 @@ MonoBehaviour:
   destroyOnPickup: 0
   isBeingHeld: 0
   popupUI: {fileID: 5240093812618620844}
+  popupOffset: {x: 0, y: 0.6, z: 0}
 --- !u!1 &3400045977539929893
 GameObject:
   m_ObjectHideFlags: 0
@@ -149,7 +150,7 @@ GameObject:
   - component: {fileID: 6845319822859134605}
   - component: {fileID: 797233502223754157}
   - component: {fileID: 5943824369222021385}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +212,7 @@ GameObject:
   - component: {fileID: 3351944466678595324}
   - component: {fileID: 6029882374475750367}
   - component: {fileID: 7345591736299637727}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +274,7 @@ GameObject:
   - component: {fileID: 1509598540012287813}
   - component: {fileID: 8788958821247645893}
   - component: {fileID: 7755209595765261159}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,7 +336,7 @@ GameObject:
   - component: {fileID: 4277234139032728020}
   - component: {fileID: 128334953252319446}
   - component: {fileID: 2390984814288133989}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -397,7 +398,7 @@ GameObject:
   - component: {fileID: 1297677427633824234}
   - component: {fileID: 6505409232166082436}
   - component: {fileID: 6871950166503394396}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,7 +460,7 @@ GameObject:
   - component: {fileID: 7210459358473254050}
   - component: {fileID: 1993578317541320795}
   - component: {fileID: 4151524784694549310}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -518,6 +519,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2986501286483575888}
     m_Modifications:
+    - target: {fileID: 2020878454264186210, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636151938148420439, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5254425859419574900, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -598,9 +607,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5705321185623638238, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7707550971682930861, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
       propertyPath: m_Name
       value: InteractPopup
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707550971682930861, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8840012631494155312, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

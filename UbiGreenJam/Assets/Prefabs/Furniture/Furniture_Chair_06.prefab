@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6182046348266899263}
   - component: {fileID: 4408033628686035762}
   - component: {fileID: 1070459332083363084}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 2224777207401225931}
   - component: {fileID: 6278217310986061451}
   - component: {fileID: 7335842933760201596}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 8825013271316998064}
   - component: {fileID: 7055454797533030858}
   - component: {fileID: 8717141343827059157}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 912239370643358370}
   - component: {fileID: 8287725252172979939}
   - component: {fileID: 2939681026002077752}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 835962526896261277}
   - component: {fileID: 6046004475216692089}
   - component: {fileID: 7247617571748466536}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -321,7 +321,7 @@ GameObject:
   - component: {fileID: 3336037634394310555}
   - component: {fileID: 2488858708044970918}
   - component: {fileID: 357576688018359680}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -385,7 +385,7 @@ GameObject:
   - component: {fileID: 6956929143068937990}
   - component: {fileID: 5074031158238651146}
   - component: {fileID: 1111476214015424929}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Furniture_Chair_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -510,6 +510,7 @@ MonoBehaviour:
   destroyOnPickup: 0
   isBeingHeld: 0
   popupUI: {fileID: 1998870594064536413}
+  popupOffset: {x: 0, y: 0.6, z: 0}
 --- !u!1001 &821095843165261927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -518,6 +519,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8124730047886013545}
     m_Modifications:
+    - target: {fileID: 2020878454264186210, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636151938148420439, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5254425859419574900, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -598,9 +607,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5705321185623638238, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7707550971682930861, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
       propertyPath: m_Name
       value: InteractPopup
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707550971682930861, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8840012631494155312, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

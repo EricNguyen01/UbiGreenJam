@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1025695560858854119}
   - component: {fileID: 7352986170736021688}
   - component: {fileID: 523504283763912330}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 4251948681705059199}
   - component: {fileID: 8225019396396987946}
   - component: {fileID: 1505189001594387204}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 8772337185160175001}
   - component: {fileID: 3913178894209054099}
   - component: {fileID: 4511374054867917907}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 4139180116305366059}
   - component: {fileID: 5468154960454101618}
   - component: {fileID: 4141494196586857623}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -259,7 +259,7 @@ GameObject:
   - component: {fileID: 1993465088536772563}
   - component: {fileID: 1140423697148025469}
   - component: {fileID: 4304698942731985570}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Furniture_TVTable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,6 +330,7 @@ MonoBehaviour:
   destroyOnPickup: 0
   isBeingHeld: 0
   popupUI: {fileID: 0}
+  popupOffset: {x: 0, y: 0.6, z: 0}
 --- !u!1 &8989992218760084876
 GameObject:
   m_ObjectHideFlags: 0
@@ -341,7 +342,7 @@ GameObject:
   - component: {fileID: 3985208107697284267}
   - component: {fileID: 2672608781589569205}
   - component: {fileID: 2295264984677022971}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -400,9 +401,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1993465088536772563}
     m_Modifications:
+    - target: {fileID: 435395411746526776, guid: ce7337e3a3bbc634195753b9a2d39f9c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5080751405492730057, guid: ce7337e3a3bbc634195753b9a2d39f9c, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5939951919464749023, guid: ce7337e3a3bbc634195753b9a2d39f9c, type: 3}
       propertyPath: m_Name
       value: Prop_Cabinet_06
+      objectReference: {fileID: 0}
+    - target: {fileID: 5939951919464749023, guid: ce7337e3a3bbc634195753b9a2d39f9c, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6423578240101174629, guid: ce7337e3a3bbc634195753b9a2d39f9c, type: 3}
       propertyPath: m_LocalPosition.x

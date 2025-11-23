@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7151294455464045051}
   - component: {fileID: 7275107336181100793}
   - component: {fileID: 3189465765486026293}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 291101836085681590}
   - component: {fileID: 6593860142185546427}
   - component: {fileID: 4958671761256709360}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 4896240156083810846}
   - component: {fileID: 8682342641086113077}
   - component: {fileID: 6345411225370658046}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 207246028425880118}
   - component: {fileID: 1054329729764167114}
   - component: {fileID: 6007700277975658606}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6168405230711187886}
   - component: {fileID: 6538869315915627349}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Furniture_WoodenCouch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -306,6 +306,7 @@ MonoBehaviour:
   destroyOnPickup: 0
   isBeingHeld: 0
   popupUI: {fileID: 1197763050793532129}
+  popupOffset: {x: 0, y: 0.6, z: 0}
 --- !u!1 &4168584820425041291
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +318,7 @@ GameObject:
   - component: {fileID: 355906984194442454}
   - component: {fileID: 4800182023614390459}
   - component: {fileID: 3552114875981974627}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +380,7 @@ GameObject:
   - component: {fileID: 4343761080564924202}
   - component: {fileID: 5714257564299634051}
   - component: {fileID: 5621554417614092144}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -441,7 +442,7 @@ GameObject:
   - component: {fileID: 6285789720499794840}
   - component: {fileID: 2318463992961345974}
   - component: {fileID: 5741356527423730377}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -503,7 +504,7 @@ GameObject:
   - component: {fileID: 2145619251205903403}
   - component: {fileID: 3343585416766304556}
   - component: {fileID: 1859905658632734217}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -562,6 +563,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6168405230711187886}
     m_Modifications:
+    - target: {fileID: 2020878454264186210, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3636151938148420439, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5254425859419574900, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -642,9 +651,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5705321185623638238, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7707550971682930861, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
       propertyPath: m_Name
       value: InteractPopup
+      objectReference: {fileID: 0}
+    - target: {fileID: 7707550971682930861, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8840012631494155312, guid: cedf716248f1bd4468241bb4f7f27445, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -738,6 +759,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ee05a0f49151e1840b94d0a25ef5306d, type: 3}
       propertyPath: m_Name
       value: long_chair
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ee05a0f49151e1840b94d0a25ef5306d, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3451118302482216456, guid: ee05a0f49151e1840b94d0a25ef5306d, type: 3}
